@@ -4,6 +4,7 @@
       <v-container fill-height>
         <div class="dogs-overlay">
           <h1 class="display-2 text-xs-center">Choose your favorite dogs</h1>
+          <h5>Click the heart button below the image</h5>
           <v-card class="dog-card">
             <v-img height="400px" :src="currentDogLink"></v-img>
 
