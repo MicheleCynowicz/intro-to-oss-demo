@@ -10,11 +10,16 @@
             <v-card-actions>
               <v-spacer></v-spacer>
 
-              <v-btn icon @click="addToFavorites" :disabled="isAlreadyInFavorites">
+              <v-btn
+                icon
+                @click="addToFavorites"
+                :disabled="isAlreadyInFavorites"
+                color="#FF0000"
+              >
                 <v-icon>favorite</v-icon>
               </v-btn>
 
-              <v-btn icon @click="loadNewDog">
+              <v-btn icon @click="loadNewDog" color="#00FF00">
                 <v-icon>forward</v-icon>
               </v-btn>
             </v-card-actions>
@@ -22,7 +27,13 @@
 
           <v-container grid-list-md fluid>
             <v-layout wrap>
-              <v-flex xs6 sm4 md2 v-for="(pet, index) in favoriteDogs" :key="pet">
+              <v-flex
+                xs6
+                sm4
+                md2
+                v-for="(pet, index) in favoriteDogs"
+                :key="pet"
+              >
                 <v-card class="dog-card">
                   <v-img height="150px" :src="pet" :key="index"></v-img>
                   <v-card-actions>
@@ -42,46 +53,44 @@
   </v-app>
 </template>
 
-
 <script>
-import axios from "axios";
+import axios from 'axios'
 
 export default {
   data() {
     return {
-      currentDogLink: "",
-      favoriteDogs: []
-    };
+      currentDogLink: '',
+      favoriteDogs: [],
+    }
   },
   methods: {
     loadNewDog() {
       axios
-        .get("https://dog.ceo/api/breeds/image/random")
-        .then(response => {
-          this.currentDogLink = response.data.message;
+        .get('https://dog.ceo/api/breeds/image/random')
+        .then((response) => {
+          this.currentDogLink = response.data.message
         })
-        .catch(error => {
-          console.log(error);
-        });
+        .catch((error) => {
+          console.log(error)
+        })
     },
     addToFavorites() {
-      this.favoriteDogs.push(this.currentDogLink);
+      this.favoriteDogs.push(this.currentDogLink)
     },
     removeFromFavorites(index) {
-      this.favoriteDogs.splice(index, 1);
-    }
+      this.favoriteDogs.splice(index, 1)
+    },
   },
   created() {
-    this.loadNewDog();
+    this.loadNewDog()
   },
   computed: {
     isAlreadyInFavorites() {
-      return this.favoriteDogs.indexOf(this.currentDogLink) > -1;
-    }
-  }
-};
+      return this.favoriteDogs.indexOf(this.currentDogLink) > -1
+    },
+  },
+}
 </script>
-
 
 <style>
 img {
@@ -95,7 +104,7 @@ h1 {
 .dogs-layout {
   width: 100%;
   background: #fff center repeat;
-  background-image: url("https://github.com/VueVixens/projects/blob/master/petshop/images/bg3.jpg?raw=true");
+  background-image: url('https://github.com/VueVixens/projects/blob/master/petshop/images/bg3.jpg?raw=true');
 }
 
 .dogs-overlay {
