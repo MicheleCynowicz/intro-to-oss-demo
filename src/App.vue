@@ -21,6 +21,7 @@
           </v-card>
 
           <v-container grid-list-md fluid>
+            <h2>Favorite Dogs:</h2>
             <v-layout wrap>
               <v-flex xs6 sm4 md2 v-for="(pet, index) in favoriteDogs" :key="pet">
                 <v-card class="dog-card">
