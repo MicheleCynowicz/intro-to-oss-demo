@@ -10,11 +10,11 @@
             <v-card-actions>
               <v-spacer></v-spacer>
 
-              <v-btn icon @click="addToFavorites" :disabled="isAlreadyInFavorites">
+              <v-btn icon @click="addToFavorites" :disabled="isAlreadyInFavorites" color="#FF0000">
                 <v-icon>favorite</v-icon>
               </v-btn>
 
-              <v-btn icon @click="loadNewDog">
+              <v-btn icon @click="loadNewDog" color="#00FF00">
                 <v-icon>forward</v-icon>
               </v-btn>
             </v-card-actions>
